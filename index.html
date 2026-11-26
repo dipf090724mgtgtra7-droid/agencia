@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agencia de Viajes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #f4f7f9;
+        }
+        .contenedor {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 { color: #1a5276; text-align: center; }
+        fieldset {
+            border: 1px solid #d5dbdb;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+        legend {
+            font-weight: bold;
+            color: #2874a6;
+            padding: 0 8px;
+        }
+        label { display: block; margin-bottom: 6px; cursor: pointer; }
+        input[type="text"], input[type="email"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        select[multiple] { height: 145px; }
+        .nota { font-size: 0.85em; color: #666; margin-top: -8px; margin-bottom: 10px; }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2874a6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover { background-color: #1a5276; }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Personaliza tu Paquete Turístico</h1>
+        
+        <form action="resultados.php" method="POST">
+            
+            <!-- Datos del cliente -->
+            <fieldset>
+                <legend>Datos del cliente</legend>
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Pérez López">
+
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" name="correo" required placeholder="Ej. juan@correo.com">
+            </fieldset>
+
+            <!--Destinos-->
+            <fieldset>
+                <legend>Destinos turísticos</legend>
+                <label for="destinos">Selecciona uno o varios destinos:</label>
+                <p class="nota">(Mantén presionada la tecla Ctrl en Windows o Cmd en Mac para seleccionar varios)</p>
+                <select name="destinos[]" id="destinos" multiple>
+                    <option value="Cancún">Cancún</option>
+                    <option value="Puerto Vallarta">Puerto Vallarta</option>
+                    <option value="Acapulco">Acapulco</option>
+                    <option value="Los Cabos">Los Cabos</option>
+                    <option value="Mazatlán">Mazatlán</option>
+                    <option value="Huatulco">Huatulco</option>
+                    <option value="Puerto Escondido">Puerto Escondido</option>
+                </select>
+            </fieldset>
+
+            <!--Actividades-->
+            <fieldset>
+                <legend>Actividades turísticas</legend>
+                <label><input type="checkbox" name="actividades[]" value="Buceo"> Buceo</label>
+                <label><input type="checkbox" name="actividades[]" value="Paseo en lancha"> Paseo en lancha</label>
+                <label><input type="checkbox" name="actividades[]" value="Visita a zonas arqueológicas"> Visita a zonas arqueológicas</label>
+                <label><input type="checkbox" name="actividades[]" value="Senderismo"> Senderismo</label>
+                <label><input type="checkbox" name="actividades[]" value="Pesca deportiva"> Pesca deportiva</label>
+                <label><input type="checkbox" name="actividades[]" value="Recorrido gastronómico"> Recorrido gastronómico</label>
+                <label><input type="checkbox" name="actividades[]" value="Visita a museos"> Visita a museos</label>
+            </fieldset>
+
+            <!--Servicios adicionales -->
+            <fieldset>
+                <legend>C. Servicios adicionales</legend>
+                <label><input type="checkbox" name="servicios[]" value="Transporte al aeropuerto"> Transporte al aeropuerto</label>
+                <label><input type="checkbox" name="servicios[]" value="Desayuno incluido"> Desayuno incluido</label>
+                <label><input type="checkbox" name="servicios[]" value="Hospedaje de lujo"> Hospedaje de lujo</label>
+                <label><input type="checkbox" name="servicios[]" value="Seguro de viajero"> Seguro de viajero</label>
+                <label><input type="checkbox" name="servicios[]" value="Renta de automóvil"> Renta de automóvil</label>
+                <label><input type="checkbox" name="servicios[]" value="Guía turístico"> Guía turístico</label>
+            </fieldset>
+
+            <button type="submit">Generar paquete</button>
+        </form>
+    </div>
+</body>
+</html>
